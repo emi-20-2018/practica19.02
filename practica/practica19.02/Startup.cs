@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using practica19._02.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,9 @@ namespace practica19._02
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<UserDbContext>(opts =>
+         opts.UseInMemoryDatabase("userDB"));
+            services.AddScoped<UserDbContext>();
             services.AddControllers();
         }
 
@@ -44,5 +49,6 @@ namespace practica19._02
                 endpoints.MapControllers();
             });
         }
+        
     }
 }

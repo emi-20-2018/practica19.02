@@ -5,5 +5,10 @@
     <RootNamespace>practica19._02</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.3" />
+  </ItemGroup>
+
 
 </Project>
